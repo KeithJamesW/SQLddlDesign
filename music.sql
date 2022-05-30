@@ -15,7 +15,11 @@ CREATE TABLE songs
   release_date DATE NOT NULL,
   artists TEXT[] NOT NULL,
   album TEXT NOT NULL,
-  producers TEXT[] NOT NULL
+  producer1_id FOREIGN KEY REFERENCES producers
+  producer2_id FOREIGN KEY REFERENCES producers
+  producer3_id FOREIGN KEY REFERENCES producers
+
+
 );
 
 INSERT INTO songs
@@ -31,3 +35,76 @@ VALUES
   ('Moves Like Jagger', 201, '06-21-2011', '{"Maroon 5", "Christina Aguilera"}', 'Hands All Over', '{"Shellback", "Benny Blanco"}'),
   ('Complicated', 244, '05-14-2002', '{"Avril Lavigne"}', 'Let Go', '{"The Matrix"}'),
   ('Say My Name', 240, '11-07-1999', '{"Destiny''s Child"}', 'The Writing''s on the Wall', '{"Darkchild"}');
+
+
+CREATE TABLE artists
+  (
+    artist_id SERIAL PRIMARY KEY,
+    artist_name TEXT NOT NULL
+  );
+
+INSERT INTO artists
+  (artist_name)
+VALUES
+({"Hanson"}),
+({"Queen"}),
+({"Mariah Cary"}),
+({"Boyz II Men"}),
+({"Lady Gaga"}),
+({"Bradley Cooper"}),
+({"Nickelback"}),
+({"Jay Z"}),
+({"Alicia Keys"}),
+({"Katy Perry"}),
+({"Juicy J"}),
+({"Maroon 5"}),
+({"Christina Aguilera"}),
+({"Avril Lavigne"}),
+({"Destiny's Child"});
+
+
+CREATE TABLE albums
+  (
+    album_id SERIAL PRIMARY KEY,
+    album_name TEXT NOT NULL
+  );
+
+  INSERT INTO albums
+    (album_name)
+  VALUES
+  ('Middle of Nowhere'),
+  ('A Night at the Opera'),
+  ('Daydream'),
+  ('A Star Is Born'),
+  ('Silver Side Up'),
+  ('The Blueprint 3'),
+  ('Prism'),
+  ('Hands All Over'),
+  ('Let Go'),
+  ('The Writing''s on the Wall');
+
+
+CREATE TABLE producers
+  (
+    producer_id SERIAL PRIMARY KEY,
+    producer_name TEXT NOT NULL
+  );
+
+INSERT INTO producers
+  (producer_name)
+VALUES
+  ('{"Dust Brothers"}').
+  ('{"Stephen Lironi"}'),
+  ('{"Roy Thomas Baker"}'),
+  ('{"Walter Afanasieff"}'),
+  ('{"Benjamin Rice"}'),
+  ('{"Rick Parashar"}'),
+  ('{"Al Shux"}'),
+  ('{"Max Martin"}')
+  ('("Cirkut"}')
+  ('{"Shellback"}')
+  ('{"Benny Blanco"}')
+  ('{"The Matrix"}')
+  ('{"Darkchild"}')
+
+  
